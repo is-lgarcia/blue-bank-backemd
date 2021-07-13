@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "7346e4e8-2dcf-43f1-bbf8-3e7fa4186add",
+		"name": "BlueBank Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save Client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"birthday\": \"1991-08-14\",\r\n  \"email\": \"luis10.g@hotmail.com\",\r\n  \"lastname\": \"Garcia\",\r\n  \"name\": \"Luis\",\r\n  \"phoneNumber\": \"7068-3104\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_bluebank}}/api/v1/clients",
+					"host": [
+						"{{url_bluebank}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Client By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_bluebank}}/api/v1/clients/1",
+					"host": [
+						"{{url_bluebank}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clients",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Client By Email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_bluebank}}/api/v1/clients?email=luis10.g@hotmail.com",
+					"host": [
+						"{{url_bluebank}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clients"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "luis10.g@hotmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Bank Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"alias\": \"CUENTA DE EMERGENCIA\",\r\n  \"clientId\": 1,\r\n  \"balance\" : 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_bluebank}}/api/v1/bankAccounts/",
+					"host": [
+						"{{url_bluebank}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bankAccounts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bank Account By Client Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_bluebank}}/api/v1/bankAccounts/client/1",
+					"host": [
+						"{{url_bluebank}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bankAccounts",
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bank Account By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_bluebank}}/api/v1/bankAccounts/3",
+					"host": [
+						"{{url_bluebank}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bankAccounts",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"accountId\": 3,\r\n  \"amount\": 100,\r\n  \"transactionType\": \"ABONO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_bluebank}}/api/v1/transactions/",
+					"host": [
+						"{{url_bluebank}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"transactions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transaction By Account Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_bluebank}}/api/v1/transactions/account/1",
+					"host": [
+						"{{url_bluebank}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"transactions",
+						"account",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_bluebank",
+			"value": "http://localhost:8090"
+		}
+	]
+}
